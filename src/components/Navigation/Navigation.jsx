@@ -1,23 +1,17 @@
 import { NavLink } from 'react-router-dom';
+import css from './Navigation.css';
 
 const Navigation = () => {
   return (
-    <nav className="navigation">
-      <ul
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          padding: '0.5rem',
-          height: '2rem',
-        }}
-      >
-        <li className="top-menu__item">
-          <NavLink className="top-menu__nav-link" to="/">
+    <nav>
+      <ul className={'top-menu'}>
+        <li className={css['top-menu__item']}>
+          <NavLink className="top-menu__link" to="/">
             Home
           </NavLink>
         </li>
-        <li className="top-menu__item">
-          <NavLink className="top-menu__nav-link" to="/movies">
+        <li className={css['top-menu__item']}>
+          <NavLink className="top-menu__link" to="/movies">
             Moves
           </NavLink>
         </li>

@@ -1,0 +1,21 @@
+.top-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid blue;
+}
+.top-menu__link {
+  display: inline-block;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.top-menu__link.active {
+  border-bottom: 2px solid darkblue;
+}

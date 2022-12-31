@@ -42,10 +42,9 @@ const MoviesGallery = ({ search, setSearch }) => {
 
   return (
     <>
-      {/* <NewsList movies={movies} page={page} /> */}
       <ul>
         {movies.map(movie => (
-          <li key={movie.id}>
+          <li key={movie.id} style={{ marginBottom: '0.4rem' }}>
             <Link to={`/movies/${movie.id}`} state={{ from: location }}>
               <p>{movie.title}</p>
             </Link>
@@ -53,7 +52,7 @@ const MoviesGallery = ({ search, setSearch }) => {
         ))}
       </ul>
 
-      {isLoading && <h1>Loading...</h1>}
+      {/* {isLoading && <h1>Loading...</h1>} */}
       {movies.length > 0 && movies.length < totalResults && (
         <Button onClick={updatePage} />
       )}

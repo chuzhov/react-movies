@@ -12,16 +12,17 @@ const SearchForm = ({ setSearch }) => {
   };
 
   return (
-    <form className="" onSubmit={handleSubmit}>
+    <form className="" style={{ marginBottom: '1rem' }} onSubmit={handleSubmit}>
       <input
         className=""
+        style={{ width: '300px' }}
         type="text"
         name="input"
         value={input}
         placeholder="Enter movie name..."
         onChange={event => setInput(event.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button type="submit">Search</button>
     </form>
   );
 };
