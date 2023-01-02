@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const updateTrendings = () => {
       //   setIsLoading(true);
-
+      if (movies.length > 0 && page === 1) return;
       getPopularMovies(page)
         .then(data => {
           //Removing repetitive movies the backend returns sometimes
