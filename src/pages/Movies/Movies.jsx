@@ -4,9 +4,10 @@ import MoviesGallery from 'components/MoviesGallery/MoviesGallery';
 
 const Movies = () => {
   const [search, setSearchParams] = useSearchParams();
+
   return (
     <div className="movies-page">
-      <SearchForm setSearch={setSearchParams} />
+      <SearchForm search={search} setSearch={setSearchParams} />
       <MoviesGallery search={search} setSearch={setSearchParams} />
     </div>
   );

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
-//import NewsList from '../NewsList/NewsList';
 import { getMoviesByQuery } from 'utils/fetchAPI';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -42,17 +41,24 @@ const MoviesGallery = ({ search, setSearch }) => {
 
   return (
     <>
-      <ul>
+      <ul style={{ marginBottom: '1rem' }}>
         {movies.map(movie => (
-          <li key={movie.id} style={{ marginBottom: '0.4rem' }}>
+          <li key={movie.id} style={{ marginBottom: '0.5rem' }}>
             <Link to={`/movies/${movie.id}`} state={{ from: location }}>
-              <p>{movie.title}</p>
+              <p>
+                {movie.title}
+                <span style={{ marginLeft: '0.5rem', color: 'grey' }}>
+                  (
+                  {parseInt(movie?.release_date || movie?.first_air_date) ||
+                    'Once apone a time'}
+                  )
+                </span>
+              </p>
             </Link>
           </li>
         ))}
       </ul>
 
-      {/* {isLoading && <h1>Loading...</h1>} */}
       {movies.length > 0 && movies.length < totalResults && (
         <Button onClick={updatePage} />
       )}
@@ -60,8 +66,9 @@ const MoviesGallery = ({ search, setSearch }) => {
   );
 };
 
-//MoviesGallery.propTypes = {
-// searchInput: PropTypes.func.isRequired,
-//};
+MoviesGallery.propTypes = {
+  search: PropTypes.object.isRequired,
+  setSearch: PropTypes.func.isRequired,
+};
 
 export default MoviesGallery;

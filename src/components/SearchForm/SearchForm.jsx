@@ -2,8 +2,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 //import css from "./SearchForm.module.scss";
 
-const SearchForm = ({ setSearch }) => {
-  const [input, setInput] = useState('');
+const SearchForm = ({ search, setSearch }) => {
+  const oldQuery = search.get('query');
+  const [input, setInput] = useState(oldQuery || '');
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,6 +29,7 @@ const SearchForm = ({ setSearch }) => {
 };
 
 SearchForm.propTypes = {
+  search: PropTypes.object.isRequired,
   setSearch: PropTypes.func.isRequired,
 };
 

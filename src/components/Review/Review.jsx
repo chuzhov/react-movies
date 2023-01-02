@@ -1,6 +1,5 @@
 import avatarFallback from '../../img/author_avatar_fallback.png';
 const Review = ({ review }) => {
-  console.dir(review);
   const { content } = review;
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -16,7 +15,7 @@ const Review = ({ review }) => {
           style={{ display: 'inline-block', marginRight: '0.5rem' }}
           src={
             review?.author_details?.avatar_path
-              ? BASE_URL + review?.author_details?.avatar_path
+              ? review?.author_details?.avatar_path
               : avatarFallback
           }
           alt={review?.author_details?.username}

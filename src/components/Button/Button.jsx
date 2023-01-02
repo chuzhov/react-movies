@@ -3,7 +3,7 @@
 const Button = ({ onClick }) => {
   return (
     <button className="" type="button" onClick={onClick}>
-      More
+      Load more...
     </button>
   );
 };

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getMoviesCast } from 'utils/fetchAPI';
+import actorAvatarFallback from '../../img/actor_avatar_fallback.jpeg';
 
 const Cast = () => {
   const { id } = useParams();
-  //  const location = useLocation();
   const [cast, setCast] = useState([]);
   const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -17,7 +17,7 @@ const Cast = () => {
         console.dir(data);
       })
       .catch(error => console.log(error));
-  }, []);
+  }, [id]);
 
   return (
     <div>
@@ -32,13 +32,32 @@ const Cast = () => {
                   justifyContent: 'center',
                   flexDirection: 'column',
                   width: '120px',
+                  height: '200px',
                   padding: '10px',
                 }}
                 key={actor?.id}
               >
-                <img src={`${BASE_URL}${actor.profile_path}`} width="80" />
-                <p style={{ fontSize: '14px' }}>{actor?.original_name}</p>
-                <p style={{ fontSize: '12px', color: 'gray' }}>
+                <img
+                  src={
+                    actor.profile_path
+                      ? `${BASE_URL}${actor.profile_path}`
+                      : actorAvatarFallback
+                  }
+                  width="80"
+                  height="120"
+                  loading="lazy"
+                  alt={actor?.original_name}
+                />
+                <p style={{ fontSize: '14px', textAlign: 'center' }}>
+                  {actor?.original_name}
+                </p>
+                <p
+                  style={{
+                    fontSize: '12px',
+                    textAlign: 'center',
+                    color: 'gray',
+                  }}
+                >
                   as {actor?.character}
                 </p>
               </li>

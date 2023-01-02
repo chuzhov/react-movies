@@ -1,0 +1,32 @@
+.go-back {
+  display: inline-block;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+
+.go-back:hover {
+  background-color: lightgray;
+}
+
+.movie-details__nav-wrapper {
+  width: 100%;
+
+  padding-left: 3rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid blue;
+}
+
+.movie-menu__link {
+  display: inline-block;
+  margin-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.movie-menu__link.active {
+  border-bottom: 2px solid darkblue;
+}
