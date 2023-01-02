@@ -11,7 +11,7 @@ const MoviesGallery = ({ search, setSearch }) => {
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [page, setPage] = useState(1); //getting page from state nor from search
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const updatePage = () => {
     //  setSearch({ query, page: page + 1 });
@@ -22,7 +22,7 @@ const MoviesGallery = ({ search, setSearch }) => {
   useEffect(() => {
     if (!query) return;
     const updateSearch = () => {
-      setIsLoading(true);
+      //    setIsLoading(true);
       getMoviesByQuery(query, page)
         .then(data => {
           setMovies(movies =>
@@ -30,8 +30,8 @@ const MoviesGallery = ({ search, setSearch }) => {
           );
           page === 1 && setTotalResults(data.total_results);
         })
-        .catch(err => console.log(err))
-        .finally(() => setIsLoading(false));
+        .catch(err => console.log(err));
+      //       .finally(() => setIsLoading(false));
     };
 
     updateSearch();

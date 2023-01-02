@@ -7,7 +7,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const [page, setPage] = useState(1); //getting page from state nor from search
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const updatePage = () => {
     setPage(page => page + 1);
@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const updateTrendings = () => {
-      setIsLoading(true);
+      //   setIsLoading(true);
       getPopularMovies(page)
         .then(data => {
           //Removing repetitive movies the backend returns sometimes
@@ -36,12 +36,12 @@ const Home = () => {
           page === 1 && setTotalResults(data.total_results);
         })
 
-        .catch(err => console.log(err))
-        .finally(() => setIsLoading(false));
+        .catch(err => console.log(err));
+      //        .finally(() => setIsLoading(false));
     };
 
     updateTrendings();
-  }, [page]);
+  }, [page, movies]);
 
   const location = useLocation();
 

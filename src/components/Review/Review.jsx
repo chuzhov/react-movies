@@ -1,7 +1,6 @@
 import avatarFallback from '../../img/author_avatar_fallback.png';
 const Review = ({ review }) => {
   const { content } = review;
-  const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
   return (
     <div style={{ padding: '6px', margin: '1rem', border: '1px solid black' }}>
