@@ -11,7 +11,7 @@ const MovieDetails = () => {
 
   useEffect(() => {
     const setUpMoviesDetails = () => {
-      if (movieData.genres.length > 0) return;
+      //     if (movieData.genres.length > 0) return;
       getMovieById(id)
         .then(data => {
           if (!data || data.id === id) return;
