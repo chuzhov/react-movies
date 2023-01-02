@@ -36,7 +36,6 @@ export const getMoviesReviews = async id => {
   const response = await axios.get(
     `movie/${id}/reviews?api_key=${KEY}&language=en-US&page=1`
   );
-  debugger;
   if (response.data.results.length > 0) {
     response.data.results.forEach(review => {
       if (review?.author_details?.avatar_path) {

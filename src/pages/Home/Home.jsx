@@ -44,7 +44,7 @@ const Home = () => {
 
   return (
     <>
-      <h2>Tranding this week:</h2>
+      <h2 style={{ color: 'orange' }}>Featured this week:</h2>
       <ul style={{ marginBottom: '1rem' }}>
         {movies.map(movie => (
           <li key={movie.id} style={{ marginBottom: '0.4rem' }}>
