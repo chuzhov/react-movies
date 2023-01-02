@@ -14,7 +14,6 @@ const Cast = () => {
       .then(data => {
         if (!data) return;
         setCast(data);
-        console.dir(data);
       })
       .catch(error => console.log(error));
   }, [id]);

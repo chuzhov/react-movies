@@ -16,7 +16,6 @@ const MovieDetails = () => {
         .then(data => {
           if (!data || data.id === id) return;
           setMovieData(data);
-          console.dir(data);
         })
         .catch(error => console.log(error));
     };

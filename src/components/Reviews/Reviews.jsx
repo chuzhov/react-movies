@@ -10,29 +10,24 @@ const Reviews = () => {
 
   useEffect(() => {
     const setUpReviews = () => {
-      debugger;
-      console.log(id);
-      if (!id) return;
+      if (reviews.length > 0) return;
       getMoviesReviews(id)
         .then(data => {
           if (!data) return;
           setReviews(data);
-          debugger;
-          console.log(data);
         })
         .catch(error => console.log(error));
     };
     setUpReviews();
-  }, []);
+  }, [id, reviews.length]);
 
-  debugger;
   return (
     <div>
-      {/* {reviews.length === 0 ? (
+      {reviews.length === 0 ? (
         <p>There are no any reviews for this movie...</p>
       ) : (
         reviews.map(review => <Review key={review?.id} review={review} />)
-      )} */}
+      )}
     </div>
   );
 };

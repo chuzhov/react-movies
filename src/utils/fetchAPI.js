@@ -36,16 +36,18 @@ export const getMoviesReviews = async id => {
   const response = await axios.get(
     `movie/${id}/reviews?api_key=${KEY}&language=en-US&page=1`
   );
+  debugger;
   if (response.data.results.length > 0) {
     response.data.results.forEach(review => {
-      review?.author_details?.avatar_path.includes('gravatar')
-        ? (review.author_details.avatar_path =
-            review.author_details.avatar_path.slice(1))
-        : (review.author_details.avatar_path =
-            BASE_URL + review.author_details.avatar_path);
+      if (review?.author_details?.avatar_path) {
+        review?.author_details?.avatar_path?.includes('gravatar')
+          ? (review.author_details.avatar_path =
+              review.author_details.avatar_path.slice(1))
+          : (review.author_details.avatar_path =
+              BASE_URL + review.author_details.avatar_path);
+      }
     });
   }
-  debugger;
-  console.dir(response.data.results);
+
   return response.data.results;
 };
