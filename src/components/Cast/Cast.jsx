@@ -28,10 +28,10 @@ const Cast = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
+                  justifyContent: 'flex-start',
                   flexDirection: 'column',
                   width: '120px',
-                  height: '200px',
+                  height: '186px',
                   padding: '10px',
                 }}
                 key={actor?.id}
@@ -47,7 +47,13 @@ const Cast = () => {
                   loading="lazy"
                   alt={actor?.original_name}
                 />
-                <p style={{ fontSize: '14px', textAlign: 'center' }}>
+                <p
+                  style={{
+                    fontSize: '14px',
+                    textAlign: 'center',
+                    margin: '0.2rem',
+                  }}
+                >
                   {actor?.original_name}
                 </p>
                 <p
