@@ -1,0 +1,20 @@
+.ribbon {
+  position: absolute;
+  top: 0;
+  left: 2px;
+
+  width: 32px;
+  height: 42px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 49% 85%, 0 100%);
+
+  cursor: pointer;
+}
+.ribbon.checked {
+  background-color: rgba(255, 255, 0, 0.7);
+}
+.ribbon:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}

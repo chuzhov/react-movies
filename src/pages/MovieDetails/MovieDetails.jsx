@@ -1,5 +1,11 @@
 import { Suspense, useEffect, useState } from 'react';
-import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import { getMovieById } from 'utils/fetchAPI';
 import './MovieDetails.css';
 
@@ -23,10 +29,10 @@ const MovieDetails = () => {
   }, [id]);
 
   return (
-    <div>
-      <NavLink to={location.state?.from ?? '/'} className="go-back">
+    <div style={{ color: 'white' }}>
+      <Link to={location.state?.from ?? '/'} className="go-back">
         Go back
-      </NavLink>
+      </Link>
 
       {movieData?.poster_path && (
         <img

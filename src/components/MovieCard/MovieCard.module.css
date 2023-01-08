@@ -1,0 +1,22 @@
+.movie-card {
+  position: relative;
+  width: 185px;
+  height: 400px;
+
+  background-color: rgb(43, 43, 43);
+}
+.movie-rating {
+  display: inline-block;
+  margin: 0.4rem 0;
+  padding: 0 0.4rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.movie-title {
+  display: inline-block;
+  color: white;
+  padding: 0 0.4rem;
+  margin-bottom: 0.4rem;
+}
+.movie-title:hover {
+  text-decoration: underline;
+}

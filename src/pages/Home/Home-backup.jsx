@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import Button from 'components/Button/Button';
 import { getPopularMovies } from 'utils/fetchAPI';
-import { useLocation } from 'react-router-dom';
-import MovieCard from 'components/MovieCard/MovieCard';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -46,16 +45,21 @@ const Home = () => {
   return (
     <>
       <h2 style={{ color: 'orange' }}>Featured this week:</h2>
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '0.5rem',
-          margin: '0 2rem 1rem',
-        }}
-      >
+      <ul style={{ marginBottom: '1rem' }}>
         {movies.map(movie => (
-          <MovieCard key={movie.id} movieData={movie} location={location} />
+          <li key={movie.id} style={{ marginBottom: '0.4rem' }}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              <p>
+                {movie.title}
+                <span style={{ marginLeft: '0.5rem', color: 'blueviolet' }}>
+                  (
+                  {parseInt(movie?.release_date || movie?.first_air_date) ??
+                    'Once apone a time'}
+                  )
+                </span>
+              </p>
+            </Link>
+          </li>
         ))}
       </ul>
 

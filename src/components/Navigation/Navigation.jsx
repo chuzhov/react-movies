@@ -9,12 +9,12 @@ const Navigation = () => {
         <img src={logo} alt="site logo" height="24" />
         <li className={css['top-menu__item']}>
           <NavLink className="top-menu__link" to="/">
-            Home
+            Trandings
           </NavLink>
         </li>
         <li className={css['top-menu__item']}>
           <NavLink className="top-menu__link" to="/movies">
-            Moves
+            Search
           </NavLink>
         </li>
       </ul>
